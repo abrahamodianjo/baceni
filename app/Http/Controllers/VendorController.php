@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Hash;
+
 class VendorController extends Controller
 {
     public function VendorDashboard(){
@@ -30,6 +31,7 @@ class VendorController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/vendor/login');
+
     }//End logout Method
 
     public function VendorProfile(){
@@ -68,6 +70,33 @@ class VendorController extends Controller
         );
         return redirect()->back()->with($notification);
 
-    }//End AdminProfileStore method
+    }//End vendor Profile Store method
+
+    public function VendorChangePassword(){
+        return view('vendor.vendor_change_password');
+    } // End Mehtod 
+
+
+
+public function VendorUpdatePassword(Request $request){
+        // Validation 
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed', 
+        ]);
+
+        // Match The Old Password
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+            return back()->with("error", "Old Password Doesn't Match!!");
+        }
+
+        // Update The new password 
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+
+        ]);
+        return back()->with("status", " Password Changed Successfully");
+
+    } // End Mehtod 
 
 }
