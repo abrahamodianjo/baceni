@@ -52,7 +52,7 @@
                                     <form method="POST" action="{{ route('password.email') }}">
                                         @csrf
                                             <div class="form-group">
-                                                <input type="text" required="" id="email" name="email" name="email" placeholder="Email *" />
+                                                <input type="text" required="" id="email" name="email"  placeholder="Email *" />
                                             </div>
                                            
                                             <div class="form-group">
