@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}" alt="logo" /></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}" alt="logo" /></a>
                     </div>
     <div class="header-right">
         <div class="search-style-2">
@@ -160,7 +160,7 @@
 
 @auth
 
-<a href="page-account.html"><span class="lable ml-0">Account</span></a>
+<a href="#"><span class="lable ml-0">Account</span></a>
         <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
             <ul>
                 <li>
@@ -512,7 +512,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}" alt="logo" /></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}" alt="logo" /></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">

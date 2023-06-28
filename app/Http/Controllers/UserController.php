@@ -16,6 +16,11 @@ class UserController extends Controller
 
     } //End Method
 
+    public function HomeMain(){
+        return view('frontend.index');
+
+    }// End Home method
+
     
     public function UserProfileStore(Request $request){
 
