@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register - Baceni Shop Online Store </title>
+    <title>Become Vendor - Baceni Shop Online Store </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span>  My Account
+                    <span></span>  Become Vendor
                 </div>
             </div>
         </div>
@@ -40,8 +40,8 @@
                                 <div class="login_wrap widget-taber-content background-white">
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
-                                            <h1 class="mb-5">Create an Account</h1>
-         <p class="mb-30">Already have an account? <a href="{{ route('login') }}">Login</a></p>
+                                            <h1 class="mb-5">Become a Vendor</h1>
+         <p class="mb-30">Already have a Vendor account? <a href="{{ route('vendor.login') }}">Login</a></p>
                                         </div>
 
 
@@ -50,11 +50,30 @@
 
 
     <div class="form-group">
-        <input type="text" id="name" required="" name="name" placeholder="Username" />
+        <input type="text" id="name" required="" name="name" placeholder="Shop Name" />
+    </div>
+    
+    <div class="form-group">
+        <input type="text" id="username" required="" name="username" placeholder="UserName" />
     </div>
     <div class="form-group">
-        <input type="email"  id="email" required="" name="email" placeholder="Email" />
+        <input type="text"  id="email" required="" name="email" placeholder="Email" />
     </div>
+    <div class="form-group">
+        <input type="text"  id="phone" required="" name="phone" placeholder="Phone" />
+    </div>
+    <div class="form-group">
+       
+        <select class="form-select mb-3" name="vendor_join" aria-label="Default select example">
+            <option selected="">open this select join date</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+
+    </div>
+
     <div class="form-group">
         <input required=""  id="password"  type="password" name="password" placeholder="Password" />
     </div>
