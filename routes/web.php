@@ -73,6 +73,8 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
 
 Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
+Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
+
 
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -104,9 +106,10 @@ Route::controller(CategoryController::class)->group(function(){
 
 });
 
+ //SubCategory All Route
 Route::controller(SubCategoryController::class)->group(function(){
 
-    //Category All Route
+   
     Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory');
     Route::get('/add/subcategory', 'AddSubCategory')->name('add.subcategory');
     Route::post('/store/subcategory', 'StoreSubCategory')->name('store.subcategory');
@@ -115,7 +118,16 @@ Route::controller(SubCategoryController::class)->group(function(){
     Route::get('/delete/subcategory/{id}', 'DeleteSubCategory')->name('delete.subcategory');
 
 
-});
+}); //End Subcategory
+
+// Vendor Active and inactive all route
+Route::controller(AdminController::class)->group(function(){
+    
+    Route::get('/inactive/vendor', 'InactiveVendor')->name('inactive.vendor');
+    
+
+
+}); //End Subcategory
 
 
 });//End middleware

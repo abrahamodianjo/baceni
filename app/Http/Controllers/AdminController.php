@@ -96,4 +96,11 @@ class AdminController extends Controller
         return back()->with("status", "Password Updated Successfully");
 
     }//End Admin Update Password Method
+
+    public function InactiveVendor(){
+        $inActiveVendor = User::where('status','inactive')->where('role', 'vendor')->latest()->get();
+        return view('backend.vendor.inactive_vendor', compact('inActiveVendor'));
+
+
+    }//End Inactive Vendor Method
 }
