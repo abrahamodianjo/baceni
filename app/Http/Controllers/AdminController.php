@@ -120,4 +120,18 @@ class AdminController extends Controller
 
 
     }//End Active Vendor Method
+
+    public function ActiveVendorApprove(Request $request){
+
+        $verdor_id = $request->id;
+        $user = User::findOrFail($verdor_id)->update([
+            'status' => 'active',
+        ]);
+        $notification = array(
+            'message' => 'Vendor activated successfully', 
+            'alert-type' => 'success'
+        );
+        return redirect()->route('active.vendor')->with($notification);
+
+    }//End Active Vendor approve Method
 }

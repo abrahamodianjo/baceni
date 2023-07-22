@@ -30,8 +30,10 @@
 						<div class="row">
 
 							<div class="col-lg-12">
-                            <form method="post" action="{{route('vendor.profile.store')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('active.vendor.approve')}}" enctype="multipart/form-data">
                             @csrf
+
+                            <input type="hidden" name="id" value="{{$inactiveVendorDetails->id}}">
 								<div class="card">
 									<div class="card-body">
 										<div class="row mb-3">
@@ -39,7 +41,7 @@
 												<h6 class="mb-0">User Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$inactiveVendorDetails->username}}" disabled />
+												<input type="text" class="form-control" value="{{$inactiveVendorDetails->username}}" name="username" />
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -117,6 +119,18 @@
 				</div>
 			</div>
 
-         
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#image').change(function(e){
+                        var reader =new FileReader();
+                        reader.onload = function(e){
+                            $('#showImage').attr('src', e.target.result);
+
+                        }
+                        reader.readAsDataURL(e.target.files['0']);
+                    });
+                });
+
+            </script>
 
 @endsection
