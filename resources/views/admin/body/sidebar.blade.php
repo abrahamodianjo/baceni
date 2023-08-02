@@ -26,7 +26,7 @@
 						<div class="menu-title">Brand</div>
 					</a>
 					<ul>
-						<li> <a href="{{ route('all.brand') }}"><i class="bx bx-right-arrow-alt"></i>All Brands</a>
+						<li> <a href="{{ route('all.brand') }}"><i class="bx bx-right-arrow-alt"></i>View Brands</a>
 						</li>
 						<li> <a href="{{ route('add.brand') }}"><i class="bx bx-right-arrow-alt"></i>Add Brand</a>
 						</li>
@@ -37,21 +37,34 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Category/Sub-Category</div>
+						<div class="menu-title">Category</div>
 					</a>
 					<ul>
-							<li> <a href="{{ route('all.category') }}"><i class="bx bx-right-arrow-alt"></i>All Category</a>
+							<li> <a href="{{ route('all.category') }}"><i class="bx bx-right-arrow-alt"></i>View Category</a>
 							</li>
 							<li> <a href="{{ route('add.category') }}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
 							</li>
-							<li> <a href="{{ route('all.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>All SubCategory</a>
-							</li>
-							<li> <a href="{{ route('add.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>Add SubCategory</a>
-							</li>
-							
+										
 						
 					</ul>
+					
 				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Sub-Category</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('all.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>View SubCategory</a>
+						</li>
+						<li> <a href="{{ route('add.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>Add SubCategory</a>
+						</li>
+					</ul>
+
+				</li>
+
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
@@ -59,7 +72,7 @@
 						<div class="menu-title">Product Management</div>
 					</a>
 					<ul>
-							<li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>All Products</a>
+							<li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>View Products</a>
 							</li>
 							<li> <a href="{{ route('add.category') }}"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
 							</li>
