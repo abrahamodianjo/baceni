@@ -106,7 +106,7 @@
 										<div class="row">
 											<div class="col-sm-3"></div>
 											<div class="col-sm-9 text-secondary">
-												<input type="submit" class="btn btn-danger px-4" value="inactivate Vendor" />
+												<input type="submit" class="btn btn-danger px-4" value="Deactivate Vendor" />
 											</div>
 										</div>
 									</div>
