@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -92,10 +93,10 @@ Route::controller(BrandController::class)->group(function(){
 
 });
 
-
+//Category All Route
 Route::controller(CategoryController::class)->group(function(){
 
-    //Category All Route
+    
     Route::get('/all/category', 'AllCategory')->name('all.category');
     Route::get('/add/category', 'AddCategory')->name('add.category');
     Route::post('/store/category', 'StoreCategory')->name('store.category');
@@ -133,7 +134,19 @@ Route::controller(AdminController::class)->group(function(){
     
 
 
-}); //End Subcategory
+}); //End Vendor active and invactive route 
+
+
+//Product All Route
+Route::controller(ProductController::class)->group(function(){
+
+    
+    Route::get('/all/product', 'AllProduct')->name('all.product');
+    Route::get('/add/product', 'AddProduct')->name('add.product');
+    
+
+
+});
 
 
 });//End middleware
