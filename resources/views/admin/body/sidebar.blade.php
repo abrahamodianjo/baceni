@@ -52,7 +52,7 @@
 
 				<li>
 					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
+						<div class="parent-icon"><i class="bx bx-selection"></i>
 						</div>
 						<div class="menu-title">Sub-Category</div>
 					</a>
@@ -67,7 +67,7 @@
 
 				<li>
 					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
+						<div class="parent-icon"><i class="bx bx-folder-open"></i>
 						</div>
 						<div class="menu-title">Product Management</div>
 					</a>

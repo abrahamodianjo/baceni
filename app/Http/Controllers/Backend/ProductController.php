@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\SubCategory;
 use App\Models\MultiImg;
+use App\Models\User;
 Use Image;
 
 class ProductController extends Controller
@@ -19,7 +20,14 @@ class ProductController extends Controller
     } // End Method 
 
     public function AddProduct(){
+        $activeVendor = User::where('status','active')->where('role', 'vendor')->latest()->get();
+        $brands = Brand::latest()->get();
+        $categories = Category::latest()->get();
+        return view('backend.product.product_add',compact('brands','categories','activeVendor'));
 
-        return view('backend.product.product_add');
     }//End Method
+
+    
+
+    
 }
