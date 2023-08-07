@@ -24,6 +24,9 @@
   <div class="card-body p-4">
 	  <h5 class="card-title">Add New Product</h5>
 	  <hr/>
+
+	<form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data" >
+	@csrf
        <div class="form-body mt-4">
 	    <div class="row">
 		   <div class="col-lg-8">
@@ -124,9 +127,7 @@
 					<label for="inputCollection" class="form-label">Product Subcategory</label>
 					<select name="subcategory_id" class="form-select" id="inputCollection">
 						<option></option>
-						@foreach($categories as $cat)
-						<option value="{{$cat->id}}">{{ $cat->category_name }}</option>
-						@endforeach
+						
 					  </select>
 				  </div>
                   
@@ -197,11 +198,14 @@
 		  </div>
 		  </div>
 	   </div><!--end row-->
+	</form>
 	</div>
   </div>
 </div>
 
 </div>
+
+
 
 
 <script type="text/javascript">
@@ -218,6 +222,8 @@ function mainThamUrl(input) {
 }
 
 </script>
+
+<!-- for images and multiple images -->
 
 <script> 
  
@@ -249,9 +255,11 @@ function mainThamUrl(input) {
      
     </script>
 
+
+<!--product subcategory functionality-->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('select'[name="category_id"]').on('change', function() {
+		$('select[name="category_id"]').on('change', function() {
 		
 			var category_id = $(this).val();
 			if (category_id){
@@ -273,6 +281,6 @@ function mainThamUrl(input) {
 				}
 			});
 		});
-</script>
+</scri>
 
 @endsection
