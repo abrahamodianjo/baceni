@@ -69,7 +69,7 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-folder-open"></i>
 						</div>
-						<div class="menu-title">Product Management</div>
+						<div class="menu-title">Product <br> Management</div>
 					</a>
 					<ul>
 							<li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>View Products</a>

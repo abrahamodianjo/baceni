@@ -6,31 +6,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
-use Intervention\Image\Facades\Image;
-
 
 class SubCategoryController extends Controller
 {
-    public function AllSubCategory(){
-        $subcategory = SubCategory::latest()->get();
-        return view('backend.subcategory.subcategory_all',compact('subcategory'));
+     public function AllSubCategory(){
+        $subcategories = SubCategory::latest()->get();
+        return view('backend.subcategory.subcategory_all',compact('subcategories'));
+    } // End Method 
 
-    }//End Method
 
     public function AddSubCategory(){
-    
-        $category = Category::orderBy('category_name', 'ASC')->get();
-        return view('backend.subcategory.subcategory_add',compact('category'));
-    }//End method
+
+        $categories = Category::orderBy('category_name','ASC')->get();
+      return view('backend.subcategory.subcategory_add',compact('categories'));
+
+    }// End Method 
 
 
-    public function StoreSubCategory(Request $request){
+    public function StoreSubCategory(Request $request){ 
 
         SubCategory::insert([
             'category_id' => $request->category_id,
             'subcategory_name' => $request->subcategory_name,
-            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)),
-          
+            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)), 
         ]);
 
        $notification = array(
@@ -40,22 +38,27 @@ class SubCategoryController extends Controller
 
         return redirect()->route('all.subcategory')->with($notification); 
 
-    }//End method
+    }// End Method 
+
 
     public function EditSubCategory($id){
-        $category = Category::orderBy('category_name', 'ASC')->get();
-        $subcategory = SubCategory::findOrFail($id);
-        return view('backend.subcategory.subcategory_edit', compact('category', 'subcategory'));
-    }//End Method
 
-    Public function UpdateSubCategory(Request $request){
+      $categories = Category::orderBy('category_name','ASC')->get();
+      $subcategory = SubCategory::findOrFail($id);
+      return view('backend.subcategory.subcategory_edit',compact('categories','subcategory'));
 
-        $subcategory_id = $request->id;
-        SubCategory::findOrFail($subcategory_id)->update([
+    }// End Method 
+
+
+
+    public function UpdateSubCategory(Request $request){
+
+        $subcat_id = $request->id;
+
+         SubCategory::findOrFail($subcat_id)->update([
             'category_id' => $request->category_id,
             'subcategory_name' => $request->subcategory_name,
-            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)),
-          
+            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)), 
         ]);
 
        $notification = array(
@@ -65,24 +68,32 @@ class SubCategoryController extends Controller
 
         return redirect()->route('all.subcategory')->with($notification); 
 
-    }//End Method
+
+    }// End Method 
+
 
     public function DeleteSubCategory($id){
-   
+
         SubCategory::findOrFail($id)->delete();
 
-        $notification = array(
+         $notification = array(
             'message' => 'SubCategory Deleted Successfully',
             'alert-type' => 'success'
         );
 
         return redirect()->back()->with($notification); 
 
+
     }// End Method 
 
-    public function GetSubCategory($category_id){
-        $subcat = SubCategory::where('category_id', $category_id)->orderBy('subcategory_name', 'ASC')->get();
-        return json_decode($subcat);
 
-    }
+    public function GetSubCategory($category_id){
+        $subcat = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name','ASC')->get();
+            return json_encode($subcat);
+
+    }// End Method 
+
+
+
 }
+ 

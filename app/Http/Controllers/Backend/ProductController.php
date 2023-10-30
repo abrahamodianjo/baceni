@@ -4,38 +4,43 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Category;
-use App\Models\Brand;
 use App\Models\SubCategory;
 use App\Models\MultiImg;
+use App\Models\Brand;
+use App\Models\Product;
 use App\Models\User;
-use Intervention\Image\Facades\Image;
-Use Carbon\Carbon;
+use Image;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
-    public function AllProduct(){
+     public function AllProduct(){
         $products = Product::latest()->get();
         return view('backend.product.product_all',compact('products'));
     } // End Method 
 
+
     public function AddProduct(){
-        $activeVendor = User::where('status','active')->where('role', 'vendor')->latest()->get();
+        $activeVendor = User::where('status','active')->where('role','vendor')->latest()->get();
         $brands = Brand::latest()->get();
         $categories = Category::latest()->get();
         return view('backend.product.product_add',compact('brands','categories','activeVendor'));
 
-    }//End Method
+    } // End Method 
+
+
 
     public function StoreProduct(Request $request){
-       
+
+
         $image = $request->file('product_thambnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->resize(800,800)->save('upload/products/thambnail/'.$name_gen);
         $save_url = 'upload/products/thambnail/'.$name_gen;
 
         $product_id = Product::insertGetId([
+
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
@@ -62,10 +67,42 @@ class ProductController extends Controller
             'vendor_id' => $request->vendor_id,
             'status' => 1,
             'created_at' => Carbon::now(), 
+
         ]);
 
-        ///Multi Image upload from here///
-        
-    
-    }
+        /// Multiple Image Upload From her //////
+
+        $images = $request->file('multi_img');
+        foreach($images as $img){
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        Image::make($img)->resize(800,800)->save('upload/products/multi-image/'.$make_name);
+        $uploadPath = 'upload/products/multi-image/'.$make_name;
+
+
+        MultiImg::insert([
+
+            'product_id' => $product_id,
+            'photo_name' => $uploadPath,
+            'created_at' => Carbon::now(), 
+
+        ]); 
+        } // end foreach
+
+        /// End Multiple Image Upload From her //////
+
+        $notification = array(
+            'message' => 'Product Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.product')->with($notification); 
+
+
+    } // End Method 
+
+
+
+
+
 }
+ 
