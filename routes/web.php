@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
+use App\Http\Controllers\Backend\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,7 +92,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function(){
     Route::get('/vendor/product/active/{id}' , 'VendorProductActive')->name('vendor.product.active');
 
     Route::get('/vendor/delete/product/{id}' , 'VendorProductDelete')->name('vendor.delete.product');
-    
+
     Route::get('/vendor/subcategory/ajax/{category_id}' , 'VendorGetSubCategory');
 
     });
@@ -190,5 +191,16 @@ Route::controller(ProductController::class)->group(function(){
 
 });
 
+ // Slider All Route 
+ Route::controller(SliderController::class)->group(function(){
+    Route::get('/all/slider' , 'AllSlider')->name('all.slider');
+    Route::get('/add/slider' , 'AddSlider')->name('add.slider');
+    Route::post('/store/slider' , 'StoreSlider')->name('store.slider');
+    Route::get('/edit/slider/{id}' , 'EditSlider')->name('edit.slider');
+    Route::post('/update/slider' , 'UpdateSlider')->name('update.slider');
+    Route::get('/delete/slider/{id}' , 'DeleteSlider')->name('delete.slider');
 
-});//End middleware
+});
+
+
+});//Admin End middleware
