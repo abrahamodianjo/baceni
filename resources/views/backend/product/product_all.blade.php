@@ -31,6 +31,7 @@
                     <thead>
                         <tr>
                             <th>Sl</th>
+                            <th>Product Image</th>
                             <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -69,24 +70,24 @@
                             </td>
                             <td>
                                 <a href="{{route('edit.product', $item->id)}}" class="btn btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
-                                <a href="{{route('delete.category', $item->id)}}" class="btn btn-danger" id="delete" title="delete"><i class="fa fa-trash"></i></a>
+                                <a href="{{route('delete.product', $item->id)}}" class="btn btn-danger" id="delete" title="delete"><i class="fa fa-trash"></i></a>
                                 <a href="{{route('edit.category', $item->id)}}" class="btn btn-warning" title="Details "><i class="fa fa-eye"></i></a>
                                 @if($item->status == '1')
-                                <a href="{{route('delete.category', $item->id)}}" class="btn btn-success" id="delete" title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
+                                <a href="{{route('product.inactive', $item->id)}}" class="btn btn-success" title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
                                 @else
-                                <a href="{{route('delete.category', $item->id)}}" class="btn btn-danger" id="delete" title="InActive"><i class="fa-solid fa-thumbs-down"></i></a>
-                             
+                                <a href="{{route('product.active', $item->id)}}" class="btn btn-danger"  title="InActive"><i class="fa-solid fa-thumbs-down"></i></a>
                                 @endif
                             </td>
                             
-                        </tr>
-                        @endforeach
+                            </tr>
+                                @endforeach
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
+                                </tbody>
+                                <tfoot>
+                             <tr>
                             
                             <th>Sl</th>
+                            <th>Product Images</th>
                             <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>

@@ -24,8 +24,9 @@
 	  <h5 class="card-title">Edit Product</h5>
 	  <hr/>
 
-<form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
+	  <form id="myForm" method="post" action="{{ route('update.product') }}"  >
 			@csrf
+			<input type="hidden" name="id" value="{{ $products->id }}">
 
        <div class="form-body mt-4">
 	    <div class="row">
@@ -142,49 +143,43 @@
 	 <div class="row g-3">
 
 	 <div class="col-md-6">	
-    <div class="form-check">
- <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} ><input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} >	</div>
- <label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>	
-</div>
+				<div class="form-check">
+					<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} ><input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} >	</div>
+					<label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>	
+				</div>
 
-	<div class="col-md-6">	
-    <div class="form-check">
-        
-        <input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault" {{ $products->featured == 1 ? 'checked' : '' }}>    
-        <label class="form-check-label" for="flexCheckDefault">Featured</label>
-    </div>
-	</div>
-
-
-
-
-<div class="col-md-6">	
-    <div class="form-check">
-        <input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_offer == 1 ? 'checked' : '' }}>
-        <label class="form-check-label" for="flexCheckDefault">Special Offer</label>	</div>
-	</div>
-
-
-	<div class="col-md-6">	
-    <div class="form-check">
-        <input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_deals == 1 ? 'checked' : '' }}>
-        <label class="form-check-label" for="flexCheckDefault">Special Deals</label>
-            
-    </div>
-	</div>
+				<div class="col-md-6">	
+				<div class="form-check">
+					
+					<input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault" {{ $products->featured == 1 ? 'checked' : '' }}>    
+					<label class="form-check-label" for="flexCheckDefault">Featured</label>
+				</div>
+				</div>
+			<div class="col-md-6">	
+				<div class="form-check">
+					<input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_offer == 1 ? 'checked' : '' }}>
+					<label class="form-check-label" for="flexCheckDefault">Special Offer</label>	</div>
+			</div>
+			<div class="col-md-6">	
+				<div class="form-check">
+					<input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_deals == 1 ? 'checked' : '' }}>
+					<label class="form-check-label" for="flexCheckDefault">Special Deals</label>
+						
+				</div>
+			</div>
 
 
 
-		</div> <!-- // end row  -->
+			</div> <!-- // end row  -->
 
 				  </div>
 
-<hr>
+					<hr>
 
 
 				  <div class="col-12">
 					  <div class="d-grid">
-					  	<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+			<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
 
 					  </div>
 				  </div>
@@ -200,6 +195,85 @@
 </div>
 
 			</div>
+
+			<!-- /// Main Image Thambnail Update ////// -->
+
+<div class="page-content">
+	<h6 class="mb-0 text-uppercase">Update Main Image Thambnail </h6>
+	<hr>
+<div class="card">
+<form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data" >
+			@csrf
+
+	<input type="hidden" name="id" value="{{ $products->id }}">	
+	<input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">		
+
+	<div class="card-body">
+		<div class="mb-3">
+			<label for="formFile" class="form-label">Chose Thambnail Image </label>
+			<input name="product_thambnail" class="form-control" type="file" id="formFile">
+		</div>
+
+
+		<div class="mb-3">
+			<label for="formFile" class="form-label"> </label>
+			 <img src="{{ asset($products->product_thambnail) }}" style="width:100px; height:100px">
+		</div>
+
+<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+
+			 </div>
+
+			</form>
+
+			    </div>
+			</div>
+
+
+<!-- /// End Main Image Thambnail Update ////// -->
+
+<!-- /// Update Multi Image  ////// -->
+
+<div class="page-content">
+		<h6 class="mb-0 text-uppercase">Update Multi Image </h6>
+		<hr>
+	<div class="card">
+		<div class="card-body">
+			<table class="table mb-0 table-striped">
+				<thead>
+					<tr>
+						<th scope="col">#Sl</th>
+						<th scope="col">Image</th>
+						<th scope="col">Change Image </th>
+						<th scope="col">Delete </th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<form method="post" action="{{ route('update.product.multiimage') }}" enctype="multipart/form-data" >
+							@csrf
+
+						@foreach($multiImgs as $key => $img)
+							<tr>
+								<th scope="row">{{ $key+1 }}</th>
+								<td> <img src="{{ asset($img->photo_name) }}" style="width:70; height: 40px;"> </td>
+								<td> <input type="file" class="form-group" name="multi_img[{{ $img->id }}]"> </td>
+								<td> 
+							<input type="submit" class="btn btn-primary px-4" value="Update Image " />		
+							<a href="{{ route('product.multiimg.delete',$img->id) }}" class="btn btn-danger" id="delete" > Delete </a>				
+								</td>
+							</tr>
+						@endforeach		 
+
+					</form>	 
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- /// End Update Multi Image  ////// -->
+
 
 
 
