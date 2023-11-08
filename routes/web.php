@@ -13,6 +13,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Frontend\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -215,3 +216,7 @@ Route::controller(ProductController::class)->group(function(){
 });
 
 });//Admin End middleware
+
+/// Frontend Product Details All Route 
+
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
