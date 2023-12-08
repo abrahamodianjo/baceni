@@ -21,18 +21,27 @@
 
         
         <!--End Best Sales-->
+<<<<<<< HEAD
+=======
+ 
+
+
+>>>>>>> 16c2e6847dcd1c4fc4fde00c8bd22e8570b9a081
 
         <!-- Fashion Category -->
 
     <section class="product-tabs section-padding position-relative">
             <div class="container">
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                    <h3>{{ $skip_category_0->category_name }} Category </h3>                 
+                    <h3>{{ $skip_category_0->category_name }} Category </h3>
+                   
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
+
+
     @foreach($skip_product_0 as $product)
     <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
         <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
@@ -49,11 +58,11 @@
                     <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                 </div>
 
-                @php
-                $amount = $product->selling_price - $product->discount_price;
-                $discount = ($amount/$product->selling_price) * 100;
+    @php
+    $amount = $product->selling_price - $product->discount_price;
+    $discount = ($amount/$product->selling_price) * 100;
 
-                @endphp
+    @endphp
 
 
                 <div class="product-badges product-badges-position product-badges-mrg">
