@@ -21,12 +21,6 @@
 
         
         <!--End Best Sales-->
-<<<<<<< HEAD
-=======
- 
-
-
->>>>>>> 16c2e6847dcd1c4fc4fde00c8bd22e8570b9a081
 
         <!-- Fashion Category -->
 
