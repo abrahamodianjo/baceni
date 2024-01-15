@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Coupon;
+use App\Models\ShipDivision;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
+use Auth;
   
 class CartController extends Controller
 {
     public function AddToCart(Request $request, $id){
+
+        if(Session::has('coupon')){
+            Session::forget('coupon');
+        }
+
 
         $product = Product::findOrFail($id);
 
@@ -29,6 +36,7 @@ class CartController extends Controller
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
                     'size' => $request->size,
+                    'vendor_id' => $request->vendor_id,
                 ],
             ]);
 
@@ -47,6 +55,7 @@ class CartController extends Controller
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
                     'size' => $request->size,
+                    'vendor_id' => $request->vendor_id,
                 ],
             ]);
 
@@ -59,6 +68,10 @@ class CartController extends Controller
 
      public function AddToCartDetails(Request $request, $id){
 
+        if(Session::has('coupon')){
+            Session::forget('coupon');
+        }
+
         $product = Product::findOrFail($id);
 
         if ($product->discount_price == NULL) {
@@ -74,6 +87,7 @@ class CartController extends Controller
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
                     'size' => $request->size,
+                    'vendor' => $request->vendor,
                 ],
             ]);
 
@@ -92,6 +106,7 @@ class CartController extends Controller
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
                     'size' => $request->size,
+                    'vendor' => $request->vendor,
                 ],
             ]);
 
@@ -150,6 +165,20 @@ class CartController extends Controller
 
     public function CartRemove($rowId){
         Cart::remove($rowId);
+
+         if(Session::has('coupon')){
+            $coupon_name = Session::get('coupon')['coupon_name'];
+            $coupon = Coupon::where('coupon_name',$coupon_name)->first();
+           
+           Session::put('coupon',[
+                'coupon_name' => $coupon->coupon_name, 
+                'coupon_discount' => $coupon->coupon_discount, 
+                'discount_amount' => round(Cart::total() * $coupon->coupon_discount/100), 
+                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100 )
+            ]); 
+        }
+
+
         return response()->json(['success' => 'Successfully Remove From Cart']);
 
     }// End Method
@@ -253,6 +282,47 @@ class CartController extends Controller
     }// End Method
 
 
+    public function CheckoutCreate(){
+
+        if (Auth::check()) {
+           
+            if (Cart::total() > 0) { 
+
+        $carts = Cart::content();
+        $cartQty = Cart::count();
+        $cartTotal = Cart::total();
+
+        $divisions = ShipDivision::orderBy('division_name','ASC')->get();
+
+        return view('frontend.checkout.checkout_view',compact('carts','cartQty','cartTotal','divisions'));
+
+               
+            }else{
+
+            $notification = array(
+            'message' => 'Shopping At list One Product',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->to('/')->with($notification); 
+            }
+
+
+
+        }else{
+
+             $notification = array(
+            'message' => 'You Need to Login First',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->route('login')->with($notification); 
+        }
+
+
+
+
+    }// End Method
 
 
 }
