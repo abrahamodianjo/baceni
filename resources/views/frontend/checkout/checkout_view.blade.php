@@ -1,6 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
-
+@section('title')
+   Checkout Page 
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
  <div class="page-header breadcrumb-wrap">
@@ -39,22 +41,22 @@
                            
 
 
-	<div class="row shipping_calculator">
-	    <div class="form-group col-lg-6">
-	        <div class="custom_select">
-	            <select name="division_id" class="form-control">
-	                <option value="">Select Division...</option>
-	                @foreach($divisions as $item)
-	                <option value="{{ $item->id }}">{{ $item->division_name }}</option>
-	                @endforeach
-	                 
-	            </select>
-	        </div>
-	    </div>
-        <div class="form-group col-lg-6">
-      <input required="" type="text" name="shipping_phone" value="{{ Auth::user()->phone }}">
+	    <div class="row shipping_calculator">
+                <div class="form-group col-lg-6">
+                    <div class="custom_select">
+                        <select name="division_id" class="form-control">
+                            <option value="">Select Division...</option>
+                            @foreach($divisions as $item)
+                            <option value="{{ $item->id }}">{{ $item->division_name }}</option>
+                            @endforeach
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+            <input required="" type="text" name="shipping_phone" value="{{ Auth::user()->phone }}">
                                 </div>
-                            </div>
+        </div>
 
      <div class="row shipping_calculator">
         <div class="form-group col-lg-6">
@@ -245,58 +247,56 @@
 
 
 
-<script type="text/javascript">
+         <script type="text/javascript">
   		
-  		$(document).ready(function(){
-  			$('select[name="division_id"]').on('change', function(){
-  				var division_id = $(this).val();
-  				if (division_id) {
-  					$.ajax({
-  						url: "{{ url('/district-get/ajax') }}/"+division_id,
-  						type: "GET",
-  						dataType:"json",
-  						success:function(data){
-  							$('select[name="state_id"]').html('');
-  							var d =$('select[name="district_id"]').empty();
-  							$.each(data, function(key, value){
-  								$('select[name="district_id"]').append('<option value="'+ value.id + '">' + value.district_name + '</option>');
-  							});
-  						},
-
-  					});
-  				} else {
-  					alert('danger');
-  				}
-  			});
-  		});
-
-
-  		// Show State Data 
-  		$(document).ready(function(){
-  			$('select[name="district_id"]').on('change', function(){
-  				var district_id = $(this).val();
-  				if (district_id) {
-  					$.ajax({
-  						url: "{{ url('/state-get/ajax') }}/"+district_id,
-  						type: "GET",
-  						dataType:"json",
-  						success:function(data){
-  							$('select[name="state_id"]').html('');
-  							var d =$('select[name="state_id"]').empty();
-  							$.each(data, function(key, value){
-  								$('select[name="state_id"]').append('<option value="'+ value.id + '">' + value.state_name + '</option>');
-  							});
-  						},
-
-  					});
-  				} else {
-  					alert('danger');
-  				}
-  			});
-  		});
-
-  </script>
-
+            $(document).ready(function(){
+                $('select[name="division_id"]').on('change', function(){
+                    var division_id = $(this).val();
+                    if (division_id) {
+                        $.ajax({
+                            url: "{{ url('/district-get/ajax') }}/"+division_id,
+                            type: "GET",
+                            dataType:"json",
+                            success:function(data){
+                                $('select[name="state_id"]').html('');
+                                var d =$('select[name="district_id"]').empty();
+                                $.each(data, function(key, value){
+                                    $('select[name="district_id"]').append('<option value="'+ value.id + '">' + value.district_name + '</option>');
+                                });
+                            },
+  
+                        });
+                    } else {
+                        alert('danger');
+                    }
+                });
+            });
+  
+  
+            // Show State Data 
+            $(document).ready(function(){
+                $('select[name="district_id"]').on('change', function(){
+                    var district_id = $(this).val();
+                    if (district_id) {
+                        $.ajax({
+                            url: "{{ url('/state-get/ajax') }}/"+district_id,
+                            type: "GET",
+                            dataType:"json",
+                            success:function(data){
+                                $('select[name="state_id"]').html('');
+                                var d =$('select[name="state_id"]').empty();
+                                $.each(data, function(key, value){
+                                    $('select[name="state_id"]').append('<option value="'+ value.id + '">' + value.state_name + '</option>');
+                                });
+                            },
+  
+                        });
+                    } else {
+                        alert('danger');
+                    }
+                });
+            });
+        </script>
 
 
 @endsection

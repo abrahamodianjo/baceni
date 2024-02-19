@@ -30,6 +30,8 @@ class CheckoutController extends Controller
 
     }// End Method 
 
+
+
     public function CheckoutStore(Request $request){
 
         $data = array();
@@ -58,4 +60,4 @@ class CheckoutController extends Controller
 
 
 }
-
+ 
