@@ -34,7 +34,7 @@
                                 <th>Email </th>
                                 <th>Phone </th>
                                 <th>Status </th>
-                                <th>Action</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -50,13 +50,6 @@
                                     <td> {{ $item->phone }} </td>
 
                                     <td><span class="badge badge-pill bg-success">{{ $item->status }}</span> </td>
-
-                                    <td>
-                                        <a href="{{ route('edit.subcategory', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('delete.subcategory', $item->id) }}" class="btn btn-danger"
-                                            id="delete">Delete</a>
-
-                                    </td>
                                 </tr>
                             @endforeach
 
@@ -70,7 +63,6 @@
                                 <th>Email </th>
                                 <th>Phone </th>
                                 <th>Status </th>
-                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>
