@@ -124,6 +124,23 @@
 
             </ul>
         </li>
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bx bx-category"></i>
+            </div>
+            <div class="menu-title">Shipping Area </div>
+        </a>
+        <ul>
+            <li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Division</a>
+            </li>
+            <li> <a href="{{ route('all.district') }}"><i class="bx bx-right-arrow-alt"></i>All District</a>
+            </li>
+
+            <li> <a href="{{ route('all.state') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
+            </li>
+
+        </ul>
+    </li>
 
         <li class="menu-label">Orders</li>
 
@@ -195,25 +212,24 @@
         </ul>
     </li>
 
-
-
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="bx bx-category"></i>
             </div>
-            <div class="menu-title">Shipping Area </div>
+            <div class="menu-title">User Manage</div>
         </a>
         <ul>
-            <li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Division</a>
-            </li>
-            <li> <a href="{{ route('all.district') }}"><i class="bx bx-right-arrow-alt"></i>All District</a>
+            <li> <a href="{{ route('all-user') }}"><i class="bx bx-right-arrow-alt"></i>All User</a>
             </li>
 
-            <li> <a href="{{ route('all.state') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
+                <li> <a href="{{ route('all-vendor') }}"><i class="bx bx-right-arrow-alt"></i>All Vendor</a>
             </li>
+
 
         </ul>
     </li>
+
+
 
     <li>
         <a href="https://themeforest.net/user/codervent" target="_blank">
