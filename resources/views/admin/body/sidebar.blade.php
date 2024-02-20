@@ -124,23 +124,23 @@
 
             </ul>
         </li>
-    <li>
-        <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class="bx bx-category"></i>
-            </div>
-            <div class="menu-title">Shipping Area </div>
-        </a>
-        <ul>
-            <li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Division</a>
-            </li>
-            <li> <a href="{{ route('all.district') }}"><i class="bx bx-right-arrow-alt"></i>All District</a>
-            </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Shipping Area </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Division</a>
+                </li>
+                <li> <a href="{{ route('all.district') }}"><i class="bx bx-right-arrow-alt"></i>All District</a>
+                </li>
 
-            <li> <a href="{{ route('all.state') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
-            </li>
+                <li> <a href="{{ route('all.state') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
+                </li>
 
-        </ul>
-    </li>
+            </ul>
+        </li>
 
         <li class="menu-label">Orders</li>
 
@@ -222,13 +222,13 @@
             <li> <a href="{{ route('all-user') }}"><i class="bx bx-right-arrow-alt"></i>All User</a>
             </li>
 
-                <li> <a href="{{ route('all-vendor') }}"><i class="bx bx-right-arrow-alt"></i>All Vendor</a>
+            <li> <a href="{{ route('all-vendor') }}"><i class="bx bx-right-arrow-alt"></i>All Vendor</a>
             </li>
 
 
         </ul>
     </li>
-    
+
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="bx bx-category"></i>
@@ -236,10 +236,11 @@
             <div class="menu-title">Blog Manage</div>
         </a>
         <ul>
-            <li> <a href="{{ route('admin.blog.category') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Categroy</a>
+            <li> <a href="{{ route('admin.blog.category') }}"><i class="bx bx-right-arrow-alt"></i>All Blog
+                    Categroy</a>
             </li>
 
-                <li> <a href="{{ route('all-vendor') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Post</a>
+            <li> <a href="{{ route('admin.blog.post') }}"><i class="bx bx-right-arrow-alt"></i>All Blog Post</a>
             </li>
 
 
