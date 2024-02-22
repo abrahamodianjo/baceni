@@ -4,8 +4,6 @@
     $status = $verdorId->status;
 @endphp
 
-
-
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
@@ -77,9 +75,6 @@
             <ul>
                 <li> <a href="{{ route('vendor.all.review') }}"><i class="bx bx-right-arrow-alt"></i>All Review</a>
                 </li>
-
-
-
             </ul>
         </li>
 

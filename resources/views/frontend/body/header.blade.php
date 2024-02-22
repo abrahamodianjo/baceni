@@ -60,12 +60,14 @@
                  </div>
              </div>
          </div>
+         @php
+             $setting = App\Models\SiteSetting::find(1);
+         @endphp
          <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
              <div class="container">
                  <div class="header-wrap">
                      <div class="logo logo-width-1">
-                         <a href="{{ url('/') }}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
-                                 alt="logo" /></a>
+                         <a href="{{ url('/') }}"><img src="{{ asset($setting->logo) }}" alt="logo" /></a>
                      </div>
                      <div class="header-right">
                          <div class="search-style-2">
@@ -328,7 +330,7 @@
                      <div class="hotline d-none d-lg-flex">
                          <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg') }}"
                              alt="hotline" />
-                         <p>07944736680<span>24/7 Support Center</span></p>
+                         <p>{{ $setting->support_phone }}<span>24/7 Support Center</span></p>
                      </div>
                      <div class="header-action-icon-2 d-block d-lg-none">
                          <div class="burger-icon burger-icon-white">
@@ -339,41 +341,41 @@
                      </div>
                      <div class="header-action-right d-block d-lg-none">
                          <div class="header-action-2">
-                            <div class="header-action-icon-2">
-                                <a href="{{ route('wishlist') }}">
-                                    <img class="svgInject" alt="Nest"
-                                        src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
-                                    <span class="pro-count blue" id="wishQty">0 </span>
-                                </a>
-                                <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
-                            </div>
+                             <div class="header-action-icon-2">
+                                 <a href="{{ route('wishlist') }}">
+                                     <img class="svgInject" alt="Nest"
+                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
+                                     <span class="pro-count blue" id="wishQty">0 </span>
+                                 </a>
+                                 <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
+                             </div>
 
-                            <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
-                                    <img alt="Nest"
-                                        src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
-                                    <span class="pro-count blue" id="cartQty">0</span>
-                                </a>
-                                <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <!--   // mini cart start with ajax -->
-                                    <div id="miniCart">
+                             <div class="header-action-icon-2">
+                                 <a class="mini-cart-icon" href="shop-cart.html">
+                                     <img alt="Nest"
+                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
+                                     <span class="pro-count blue" id="cartQty">0</span>
+                                 </a>
+                                 <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
+                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                     <!--   // mini cart start with ajax -->
+                                     <div id="miniCart">
 
-                                    </div>
+                                     </div>
 
-                                    <!--   // End mini cart start with ajax -->
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span id="cartSubTotal"></span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="{{ route('mycart') }}" class="outline">View cart</a>
-                                            <a href="{{route('checkout')}}">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                                     <!--   // End mini cart start with ajax -->
+                                     <div class="shopping-cart-footer">
+                                         <div class="shopping-cart-total">
+                                             <h4>Total <span id="cartSubTotal"></span></h4>
+                                         </div>
+                                         <div class="shopping-cart-button">
+                                             <a href="{{ route('mycart') }}" class="outline">View cart</a>
+                                             <a href="{{ route('checkout') }}">Checkout</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
                          </div>
                      </div>
                  </div>
