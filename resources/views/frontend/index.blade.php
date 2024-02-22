@@ -1,5 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
+@section('title')
+    Baceni Mart & Services
+@endsection
     @include('frontend.home.home_slider')
 
     <!--End hero slider-->
