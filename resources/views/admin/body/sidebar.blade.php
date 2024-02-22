@@ -280,16 +280,27 @@
         </ul>
     </li>
 
-
-
-
     <li>
-        <a href="https://themeforest.net/user/codervent" target="_blank">
-            <div class="parent-icon"><i class="bx bx-support"></i>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bx bx-category"></i>
             </div>
-            <div class="menu-title">Support</div>
+            <div class="menu-title">Stock Manage</div>
         </a>
-    </li>
-    </ul>
-    <!--end navigation-->
+        <ul>
+            <li> <a href="{{ route('product.stock') }}"><i class="bx bx-right-arrow-alt"></i>Product Stock</a>
+            </li>
+
+        </ul>
+	</li>
+
+
+            <li>
+                <a href="https://themeforest.net/user/codervent" target="_blank">
+                    <div class="parent-icon"><i class="bx bx-support"></i>
+                    </div>
+                    <div class="menu-title">Support</div>
+                </a>
+            </li>
+        </ul>
+        <!--end navigation-->
 </div>
