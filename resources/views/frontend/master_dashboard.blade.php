@@ -84,7 +84,7 @@
     <script src="{{ asset('frontend/assets/js/main.js?v=5.3') }}"></script>
     <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
 
-
+    <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
