@@ -1,7 +1,11 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+   <style type="text/css">
+    .form-check-label {
+    text-transform: capitalize;
+    }
+    </style>
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -28,7 +32,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form id="myForm" method="post" action="{{ route('admin.roles.update',$role->id) }}">
+                                <form id="myForm" method="post" action="{{ route('admin.roles.update', $role->id) }}">
                                     @csrf
 
                                     <div class="row mb-3">
