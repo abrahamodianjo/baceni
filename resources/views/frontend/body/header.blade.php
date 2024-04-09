@@ -227,28 +227,32 @@
                      </div>
                      <div class="header-nav d-none d-lg-flex">
                          <div class="main-categori-wrap d-none d-lg-block">
-                             {{-- <a class="categories-button-active" href="#">
+                             <a class="categories-button-active" href="#">
                                  <span class="fi-rs-apps"></span> All Categories
                                  <i class="fi-rs-angle-down"></i>
-                             </a> --}}
+                             </a>
                              <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                                  <div class="d-flex categori-dropdown-inner">
                                      <ul>
                                          @foreach ($categories as $item)
+                                         @if($loop->index < 5)
                                              <li>
-                                                 <a href="shop-grid-right.html"> <img
+                                                 <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
                                                          src="{{ asset($item->category_image) }}" alt="" />
                                                      {{ $item->category_name }} </a>
                                              </li>
+                                             @endif
                                          @endforeach
                                      </ul>
                                      <ul class="end">
                                          @foreach ($categories as $item)
+                                         @if($loop->index > 4)
                                              <li>
-                                                 <a href="shop-grid-right.html"> <img
+                                                 <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
                                                          src="{{ asset($item->category_image) }}" alt="" />
                                                      {{ $item->category_name }} </a>
                                              </li>
+                                             @endif
                                          @endforeach
 
                                      </ul>
