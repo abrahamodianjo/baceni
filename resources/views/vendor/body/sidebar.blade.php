@@ -20,7 +20,7 @@
 
         <li>
             <a href="{{ route('vendor.dashobard') }}">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
@@ -30,7 +30,7 @@
         @if ($status === 'active')
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                    <div class="parent-icon"><i class='lni lni-fresh-juice'></i>
                     </div>
                     <div class="menu-title">Product Manage </div>
                 </a>
@@ -46,7 +46,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    <div class="parent-icon"><i class="bx bx-cart"></i>
                     </div>
                     <div class="menu-title"> Order Manage </div>
                 </a>
@@ -68,7 +68,7 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
                 </div>
                 <div class="menu-title"> Review Manage </div>
             </a>
