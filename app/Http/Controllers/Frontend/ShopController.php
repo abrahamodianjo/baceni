@@ -32,6 +32,12 @@ class ShopController extends Controller
     $brands = Brand::orderBy('brand_name', 'ASC')->get();
     $newProduct = Product::orderBy('id', 'DESC')->limit(3)->get();
 
+    //price rangefilter
+    if (!empty($_GET['price'])) {
+      $price = explode('-', $_GET['price']);
+      $products = $products->whereBetween('selling_price', $price);
+    }
+
     return view('frontend.product.shop_page', compact('products', 'categories', 'newProduct', 'brands'));
   } // End Method 
   public function ShopFilter(Request $request)
@@ -64,8 +70,15 @@ class ShopController extends Controller
       }
     }
 
+    ///filter price range
 
-    return redirect()->route('shop.page', $catUrl . $brandUrl);
+    $priceRangeUrl = "";
+    if (!empty($data['price_range'])) {
+       $priceRangeUrl .= '&price='.$data['price_range'];
+    }
+
+
+    return redirect()->route('shop.page',$catUrl.$brandUrl.$priceRangeUrl);
   } // End Method 
 
 
