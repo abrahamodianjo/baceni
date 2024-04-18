@@ -1,7 +1,7 @@
 @extends('frontend.master_dashboard')
 @section('main')
 @section('title')
-    Baceni Mart & Services
+    Baceni 
 @endsection
     @include('frontend.home.home_slider')
 

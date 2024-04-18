@@ -2,7 +2,7 @@
          <div class="mobile-promotion">
              <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
          </div>
-         <div class="header-top header-top-ptb-1 d-none d-lg-block">
+         {{-- <div class="header-top header-top-ptb-1 d-none d-lg-block">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-xl-3 col-lg-4">
@@ -59,7 +59,7 @@
                      </div>
                  </div>
              </div>
-         </div>
+         </div> --}}
          @php
              $setting = App\Models\SiteSetting::find(1);
          @endphp
@@ -75,9 +75,9 @@
                                  @csrf
 
 
-                                 <select class="select-active">
+                                 {{-- <select class="select-active">
                                      <option>All Categories</option>
-                                     <option>Milks and Dairies</option>
+                                     {{-- <option>Milks and Dairies</option>
                                      <option>Wines & Alcohol</option>
                                      <option>Clothing & Beauty</option>
                                      <option>Pet Foods & Toy</option>
@@ -87,7 +87,7 @@
                                      <option>Fresh Seafood</option>
                                      <option>Noodles & Rice</option>
                                      <option>Ice cream</option>
-                                 </select>
+                                 </select> --}}
                                  <input onfocus="search_result_show()" onblur="search_result_hide()" name="search"
                                      id="search" placeholder="Search for items..." />
                                  <div id="searchProducts"></div>
@@ -95,7 +95,7 @@
                          </div>
                          <div class="header-action-right">
                              <div class="header-action-2">
-                                 <div class="search-location">
+                                 {{-- <div class="search-location">
                                      <form action="#">
                                          <select class="select-active">
                                              <option>Your Location</option>
@@ -114,7 +114,7 @@
                                              <option>New York</option>
                                          </select>
                                      </form>
-                                 </div>
+                                 </div> --}}
 
                                  <div class="header-action-icon-2">
                                      <a href="{{ route('compare') }}">
@@ -228,7 +228,7 @@
                      <div class="header-nav d-none d-lg-flex">
                          <div class="main-categori-wrap d-none d-lg-block">
                              <a class="categories-button-active" href="#">
-                                 <span class="fi-rs-apps"></span> All Categories
+                                 <span class="fi-rs-apps"></span> Categories
                                  <i class="fi-rs-angle-down"></i>
                              </a>
                              <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
@@ -258,36 +258,9 @@
                                      </ul>
                                  </div>
 
-                                 <div class="more_slide_open" style="display: none">
-                                     <div class="d-flex categori-dropdown-inner">
-                                         <ul>
-                                             <li>
-                                                 <a href="shop-grid-right.html"> <img
-                                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-1.svg') }}"
-                                                         alt="" />Milks and Dairies</a>
-                                             </li>
-                                             <li>
-                                                 <a href="shop-grid-right.html"> <img
-                                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-2.svg') }}"
-                                                         alt="" />Clothing & beauty</a>
-                                             </li>
-                                         </ul>
-                                         <ul class="end">
-                                             <li>
-                                                 <a href="shop-grid-right.html"> <img
-                                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-3.svg') }}"
-                                                         alt="" />Wines & Drinks</a>
-                                             </li>
-                                             <li>
-                                                 <a href="shop-grid-right.html"> <img
-                                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-4.svg') }}"
-                                                         alt="" />Fresh Seafood</a>
-                                             </li>
-                                         </ul>
-                                     </div>
-                                 </div>
+{{--                                  
                                  <div class="more_categories"><span class="icon"></span> <span
-                                         class="heading-sm-1">Show more...</span></div>
+                                         class="heading-sm-1">Show more...</span></div> --}}
                              </div>
                          </div>
                          <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
@@ -301,7 +274,7 @@
 
                                      @php
 
-                                         $categories = App\Models\Category::orderBy('category_name', 'ASC')->limit(6)->get();
+                                         $categories = App\Models\Category::orderBy('category_name', 'ASC')->limit(0)->get();
                                      @endphp
 
                                      @foreach ($categories as $category)
@@ -510,7 +483,7 @@
                              src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg') }}"
                              alt="" /></a>
                  </div>
-                 <div class="site-copyright">Copyright 2022 © Nest. All rights reserved. Powered by Abraham Odianjo.
+                 <div class="site-copyright">Copyright 2022 © Baceni . All rights reserved. Powered by AAOA Ltd.
                  </div>
              </div>
          </div>
