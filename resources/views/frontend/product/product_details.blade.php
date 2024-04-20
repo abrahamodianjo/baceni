@@ -163,10 +163,10 @@
                                         cart</button>
 
 
-                                    <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                        href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                    <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
-                                            class="fi-rs-shuffle"></i></a>
+                                    <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}"
+                                        onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn" id="{{ $product->id }}"
+                                            onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
                                 </div>
                             </div>
 

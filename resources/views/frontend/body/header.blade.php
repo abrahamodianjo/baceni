@@ -152,7 +152,7 @@
                                              </div>
                                              <div class="shopping-cart-button">
                                                  <a href="{{ route('mycart') }}" class="outline">View cart</a>
-                                        <a href="{{route('checkout')}}">Checkout</a>
+                                                 <a href="{{ route('checkout') }}">Checkout</a>
                                              </div>
                                          </div>
                                      </div>
@@ -222,7 +222,7 @@
              <div class="container">
                  <div class="header-wrap header-space-between position-relative">
                      <div class="logo logo-width-1 d-block d-lg-none">
-                         <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
+                         <a href="{{url('/')}}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
                                  alt="logo" /></a>
                      </div>
                      <div class="header-nav d-none d-lg-flex">
@@ -235,30 +235,34 @@
                                  <div class="d-flex categori-dropdown-inner">
                                      <ul>
                                          @foreach ($categories as $item)
-                                         @if($loop->index < 5)
-                                             <li>
-                                                 <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
-                                                         src="{{ asset($item->category_image) }}" alt="" />
-                                                     {{ $item->category_name }} </a>
-                                             </li>
+                                             @if ($loop->index < 5)
+                                                 <li>
+                                                     <a
+                                                         href="{{ url('product/category/' . $item->id . '/' . $item->category_slug) }}">
+                                                         <img src="{{ asset($item->category_image) }}"
+                                                             alt="" />
+                                                         {{ $item->category_name }} </a>
+                                                 </li>
                                              @endif
                                          @endforeach
                                      </ul>
                                      <ul class="end">
                                          @foreach ($categories as $item)
-                                         @if($loop->index > 4)
-                                             <li>
-                                                 <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
-                                                         src="{{ asset($item->category_image) }}" alt="" />
-                                                     {{ $item->category_name }} </a>
-                                             </li>
+                                             @if ($loop->index > 4)
+                                                 <li>
+                                                     <a
+                                                         href="{{ url('product/category/' . $item->id . '/' . $item->category_slug) }}">
+                                                         <img src="{{ asset($item->category_image) }}"
+                                                             alt="" />
+                                                         {{ $item->category_name }} </a>
+                                                 </li>
                                              @endif
                                          @endforeach
 
                                      </ul>
                                  </div>
 
-{{--                                  
+                                 {{--                                  
                                  <div class="more_categories"><span class="icon"></span> <span
                                          class="heading-sm-1">Show more...</span></div> --}}
                              </div>
@@ -274,7 +278,9 @@
 
                                      @php
 
-                                         $categories = App\Models\Category::orderBy('category_name', 'ASC')->limit(0)->get();
+                                         $categories = App\Models\Category::orderBy('category_name', 'ASC')
+                                             ->limit(0)
+                                             ->get();
                                      @endphp
 
                                      @foreach ($categories as $category)
@@ -284,7 +290,10 @@
                                                  <i class="fi-rs-angle-down"></i></a>
 
                                              @php
-                                                 $subcategories = App\Models\SubCategory::where('category_id', $category->id)
+                                                 $subcategories = App\Models\SubCategory::where(
+                                                     'category_id',
+                                                     $category->id,
+                                                 )
                                                      ->orderBy('subcategory_name', 'ASC')
                                                      ->get();
                                              @endphp
@@ -305,8 +314,8 @@
                                          <a href="{{ route('home.blog') }}">Blog</a>
                                      </li>
                                      <li>
-                                        <a href="{{ route('shop.page') }}">Shop</a>
-                                    </li>
+                                         <a href="{{ route('shop.page') }}">Shop</a>
+                                     </li>
                                  </ul>
                              </nav>
                          </div>
@@ -381,6 +390,14 @@
              margin-top: 5px;
          }
      </style>
+
+     {{-- // This script controls the display of search results on the webpage.
+// When the search results are to be shown, the search_result_show() function is called,
+// which smoothly slides down the #searchProducts element to reveal the results.
+// Conversely, when the search results are to be hidden, the search_result_hide() function is called,
+// which slides up the #searchProducts element, effectively hiding the results from view.
+// Note: This script relies on jQuery for DOM manipulation. --}}
+
 
      <script>
          function search_result_show() {

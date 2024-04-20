@@ -1,5 +1,6 @@
 @php
     $products = App\Models\Product::where('status', 1)->orderBy('id', 'ASC')->limit(10)->get();
+    $vendor = App\Models\User::where('id')->get();
     $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
 @endphp
 
@@ -112,10 +113,10 @@
                                     <div>
                                         @if ($product->vendor_id == null)
                                             <span class="font-small text-muted">By <a
-                                                    href="vendor-details-1.html">Owner</a></span>
+                                                    href="#">Owner</a></span>
                                         @else
                                             <span class="font-small text-muted">By <a
-                                                    href="vendor-details-1.html">{{ $product['vendor']['name'] }}</a></span>
+                                                    href="#">{{ $product['vendor']['name'] }}</a></span>
                                         @endif
 
 
@@ -138,8 +139,9 @@
 
 
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i
-                                                    class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                            <a class="add" href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}"><i
+                                                    class="fi-rs-shopping-cart mr-5"></i>Details </a>
+                                                   
                                         </div>
                                     </div>
                                 </div>
