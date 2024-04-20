@@ -96,16 +96,16 @@
 
                                 @if ($product->discount_price == null)
                                     <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand">${{ $product->selling_price }}</span>
+                                        <span class="current-price text-brand">£{{ $product->selling_price }}</span>
 
                                     </div>
                                 @else
                                     <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand">${{ $product->discount_price }}</span>
+                                        <span class="current-price text-brand">£{{ $product->discount_price }}</span>
                                         <span>
                                             <span class="save-price font-md color3 ml-15">{{ round($discount) }}%
                                                 Off</span>
-                                            <span class="old-price font-md ml-15">${{ $product->selling_price }}</span>
+                                            <span class="old-price font-md ml-15">£{{ $product->selling_price }}</span>
                                         </span>
                                     </div>
                                 @endif

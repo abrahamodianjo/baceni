@@ -143,12 +143,12 @@
 
                                     @if ($product->discount_price == null)
                                         <div class="product-price">
-                                            <span>${{ $product->selling_price }}</span>
+                                            <span>£{{ $product->selling_price }}</span>
 
                                         </div>
                                     @else
                                         <div class="product-price">
-                                            <span>${{ $product->discount_price }}</span>
+                                            <span>£{{ $product->discount_price }}</span>
                                             <span class="old-price">${{ $product->selling_price }}</span>
                                         </div>
                                     @endif
@@ -209,7 +209,7 @@
                         <div class="price-filter-inner">
                             <div id="slider-range" class="price-filter-range" data-min="0" data-max="2000"></div>
                             <input type="hidden" id="price_range" name="price_range" value="">
-                            <input type="text" id="amount" value="$0 - $2000" readonly="">
+                            <input type="text" id="amount" value="£0 - £2000" readonly="">
 
                             <br><br>
 
@@ -288,9 +288,9 @@
                             </p>
 
                             @if ($product->discount_price == null)
-                                <p class="price mb-0 mt-5">${{ $product->selling_price }}</p>
+                                <p class="price mb-0 mt-5">£{{ $product->selling_price }}</p>
                             @else
-                                <p class="price mb-0 mt-5">${{ $product->discount_price }}</p>
+                                <p class="price mb-0 mt-5">£{{ $product->discount_price }}</p>
                             @endif
 
                             <div class="product-rate">

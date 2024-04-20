@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($activeVendor as $key => $item)
+                        @foreach($ActiveVendor as $key => $item)
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$item->name}}</td>

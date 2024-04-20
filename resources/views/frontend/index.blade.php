@@ -457,8 +457,8 @@
                         @foreach ($hot_deals as $item)
                             <article class="row align-items-center hover-up">
                                 <figure class="col-md-4 mb-0">
-                                    <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}"><img
-                                            src="{{ asset($item->product_thambnail) }}" alt="" /></a>
+                                    <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <img  src="{{ asset($item->product_thambnail) }}" alt="" /></a>
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
