@@ -4,7 +4,10 @@
     {{ $product->product_name }}
 @endsection
 
+@php
+$vendors = App\Models\User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->get();
 
+@endphp
 
 <div class="page-header breadcrumb-wrap">
     <div class="container">

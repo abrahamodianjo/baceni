@@ -12,7 +12,7 @@
                 <div class="col-xl-3">
                     <h1 class="mb-15">Blog & News</h1>
                     <div class="breadcrumb">
-                        <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                        <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                         <span></span> Blog & News
                     </div>
                 </div>
