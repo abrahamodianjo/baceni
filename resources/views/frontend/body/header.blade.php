@@ -1,6 +1,9 @@
 @php
     $setting = App\Models\SiteSetting::find(1);
+    $route = Route::current()->getName();
 @endphp
+
+   
 
 
 <header class="header-area header-style-1 header-height-2">
@@ -179,20 +182,19 @@
                                                     Account</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('dashboard') }}"><i
-                                                        class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
+                                                <a href="{{ route('user.order.page') }}"><i
+                                                        class="fi fi-rs-shopping-bag mr-10  {{ $route == 'user.order.page' ? 'active' : '' }}"></i>Orders</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('dashboard') }}"><i class="fi fi-rs-label mr-10"></i>My
-                                                    Voucher</a>
+                                                <a href="{{ route('user.track.order') }}"><i
+                                                        class="fi fi-rs-shopping-cart-check mr-10 {{ $route == 'user.track.order' ? 'active' : '' }}"></i>Track your Order</a>
                                             </li>
+                                           
+                                            
+                                            
                                             <li>
-                                                <a href="{{ route('dashboard') }}"><i class="fi fi-rs-heart mr-10"></i>My
+                                                <a href="{{ route('wishlist') }}"><i class="fi fi-rs-heart mr-10"></i>My
                                                     Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('dashboard') }}"><i
-                                                        class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.logout') }}"><i
@@ -413,7 +415,7 @@
                 <a href="{{ url('/') }}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg') }}"
                         alt="logo" /></a>
             </div>
-            
+
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
                     <i class="icon-top"></i>
