@@ -130,7 +130,7 @@
                         <h6 class="text-muted pl-20 pr-20">x {{ $item->qty }}</h6>
                     </td>
                     <td>
-                        <h4 class="text-brand">${{ $item->price }}</h4>
+                        <h4 class="text-brand">₦{{ $item->price }}</h4>
                     </td>
                 </tr>
                 @endforeach
@@ -150,7 +150,7 @@
                     <h6 class="text-muted">Subtotal</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                    <h4 class="text-brand text-end">₦{{ $cartTotal }}</h4>
                 </td>
             </tr>
             
@@ -168,7 +168,7 @@
                     <h6 class="text-muted">Coupon Discount</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ session()->get('coupon')['discount_amount'] }}</h4>
+                    <h4 class="text-brand text-end">₦{{ session()->get('coupon')['discount_amount'] }}</h4>
                 </td>
             </tr>
 
@@ -177,7 +177,7 @@
                     <h6 class="text-muted">Grand Total</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ session()->get('coupon')['total_amount'] }}</h4>
+                    <h4 class="text-brand text-end">₦{{ session()->get('coupon')['total_amount'] }}</h4>
                 </td>
             </tr>
 
@@ -189,7 +189,7 @@
                     <h6 class="text-muted">Grand Total </h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                    <h4 class="text-brand text-end">₦{{ $cartTotal }}</h4>
                 </td>
             </tr>
             

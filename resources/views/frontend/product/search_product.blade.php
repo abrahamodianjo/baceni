@@ -68,7 +68,7 @@
 
                                 <div class="d-flex flex-column ml-5"
                                     style="margin-left:10px; font-size:16px; font-weight: bold;">
-                                    <span>{{ $item->product_name }}</span> <small>£{{ $item->selling_price }}</small>
+                                    <span>{{ $item->product_name }}</span> <small>₦{{ $item->selling_price }}</small>
 
                                 </div>
 

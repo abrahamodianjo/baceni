@@ -137,13 +137,13 @@
 
                                             @if ($product->discount_price == null)
                                                 <div class="product-price">
-                                                    <span>${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->selling_price }}</span>
 
                                                 </div>
                                             @else
                                                 <div class="product-price">
-                                                    <span>${{ $product->discount_price }}</span>
-                                                    <span class="old-price">${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->discount_price }}</span>
+                                                    <span class="old-price">₦{{ $product->selling_price }}</span>
                                                 </div>
                                             @endif
 
@@ -267,13 +267,13 @@
 
                                             @if ($product->discount_price == null)
                                                 <div class="product-price">
-                                                    <span>${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->selling_price }}</span>
 
                                                 </div>
                                             @else
                                                 <div class="product-price">
-                                                    <span>${{ $product->discount_price }}</span>
-                                                    <span class="old-price">${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->discount_price }}</span>
+                                                    <span class="old-price">₦{{ $product->selling_price }}</span>
                                                 </div>
                                             @endif
 
@@ -401,13 +401,13 @@
 
                                             @if ($product->discount_price == null)
                                                 <div class="product-price">
-                                                    <span>${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->selling_price }}</span>
 
                                                 </div>
                                             @else
                                                 <div class="product-price">
-                                                    <span>${{ $product->discount_price }}</span>
-                                                    <span class="old-price">${{ $product->selling_price }}</span>
+                                                    <span>₦{{ $product->discount_price }}</span>
+                                                    <span class="old-price">₦{{ $product->selling_price }}</span>
                                                 </div>
                                             @endif
 
@@ -473,13 +473,13 @@
                                     </div>
                                     @if ($item->discount_price == null)
                                         <div class="product-price">
-                                            <span>${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->selling_price }}</span>
 
                                         </div>
                                     @else
                                         <div class="product-price">
-                                            <span>${{ $item->discount_price }}</span>
-                                            <span class="old-price">${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->discount_price }}</span>
+                                            <span class="old-price">₦{{ $item->selling_price }}</span>
                                         </div>
                                     @endif
                                 </div>
@@ -519,13 +519,13 @@
                                     </div>
                                     @if ($item->discount_price == null)
                                         <div class="product-price">
-                                            <span>${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->selling_price }}</span>
 
                                         </div>
                                     @else
                                         <div class="product-price">
-                                            <span>${{ $item->discount_price }}</span>
-                                            <span class="old-price">${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->discount_price }}</span>
+                                            <span class="old-price">₦{{ $item->selling_price }}</span>
                                         </div>
                                     @endif
                                 </div>
@@ -561,13 +561,13 @@
                                     </div>
                                     @if ($item->discount_price == null)
                                         <div class="product-price">
-                                            <span>${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->selling_price }}</span>
 
                                         </div>
                                     @else
                                         <div class="product-price">
-                                            <span>${{ $item->discount_price }}</span>
-                                            <span class="old-price">${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->discount_price }}</span>
+                                            <span class="old-price">₦{{ $item->selling_price }}</span>
                                         </div>
                                     @endif
                                 </div>
@@ -603,13 +603,13 @@
                                     </div>
                                     @if ($item->discount_price == null)
                                         <div class="product-price">
-                                            <span>${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->selling_price }}</span>
 
                                         </div>
                                     @else
                                         <div class="product-price">
-                                            <span>${{ $item->discount_price }}</span>
-                                            <span class="old-price">${{ $item->selling_price }}</span>
+                                            <span>₦{{ $item->discount_price }}</span>
+                                            <span class="old-price">₦{{ $item->selling_price }}</span>
                                         </div>
                                     @endif
                                 </div>

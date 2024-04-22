@@ -213,9 +213,9 @@
                                     <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></p>
 
                                     @if($product->discount_price == NULL)
-                                        <p class="price mb-0 mt-5">£{{ $product->selling_price }}</p>
+                                        <p class="price mb-0 mt-5">₦{{ $product->selling_price }}</p>
                                     @else
-                                    <p class="price mb-0 mt-5">£{{ $product->discount_price }}</p>
+                                    <p class="price mb-0 mt-5">₦{{ $product->discount_price }}</p>
                                     @endif
                                     
                                     <div class="product-rate">

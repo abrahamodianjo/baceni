@@ -12,9 +12,9 @@
                         <div class="newsletter-content">
                             <h2 class="mb-20">
                                 Stay home & get your daily <br />
-                                needs from our shop
+                                needs from us
                             </h2>
-                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span>
+                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Baceni</span>
                             </p>
                             <form class="form-subcriber d-flex">
                                 <input type="email" placeholder="Your emaill address" />
@@ -38,7 +38,7 @@
                         </div>
                         <div class="banner-text">
                             <h3 class="icon-box-title">Best prices & offers</h3>
-                            <p>Orders $50 or more</p>
+                            <p>Orders ₦50 or more</p>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-2.svg') }}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Free delivery</h3>
+                            <h3 class="icon-box-title">Fast delivery</h3>
                             <p>24/7 amazing services</p>
                         </div>
                     </div>
