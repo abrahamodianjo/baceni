@@ -137,21 +137,24 @@
                         <li><a href="#">Delivery Information</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Support Center</a></li>
+                 
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                     <h4 class="widget-title">Account</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">View Cart</a></li>
-                        <li><a href="#">My Wishlist</a></li>
-                        <li><a href="#">Track My Order</a></li>
-                        <li><a href="#">Help Ticket</a></li>
-                        <li><a href="#">Shipping Details</a></li>
-                        <li><a href="#">Compare products</a></li>
+                        @auth
+                        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
+                        @else
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        @endauth
+                        <li><a href="{{route('mycart')}}">View Cart</a></li>
+                        <li><a href="{{route('wishlist')}}">My Wishlist</a></li>
+                        <li><a href="#">Support</a></li>
+                     
+              
+                        <li><a href="{{route('compare')}}">Compare products</a></li>
                     </ul>
                 </div>
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
@@ -162,20 +165,18 @@
                         <li><a href="#">Farm Business</a></li>
                         <li><a href="#">Farm Careers</a></li>
                         <li><a href="#">Our Suppliers</a></li>
-                        <li><a href="#">Accessibility</a></li>
-                        <li><a href="#">Promotions</a></li>
+             
                     </ul>
                 </div>
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
                     <h4 class="widget-title">Popular</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="#">Milk & Flavoured Milk</a></li>
-                        <li><a href="#">Butter and Margarine</a></li>
-                        <li><a href="#">Eggs Substitutes</a></li>
-                        <li><a href="#">Marmalades</a></li>
-                        <li><a href="#">Sour Cream and Dips</a></li>
-                        <li><a href="#">Tea & Kombucha</a></li>
-                        <li><a href="#">Cheese</a></li>
+                        <li><a href="#">Cloths</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Bags</a></li>
+                        <li><a href="#">Jewelry</a></li>
+                        <li><a href="#">Accessories</a></li>
+                
                     </ul>
                 </div>
 
