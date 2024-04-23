@@ -212,7 +212,7 @@ class BlogController extends Controller
 
     public function AllBlog(){
         $blogcategoryies = BlogCategory::latest()->get();
-        $blogpost = BlogPost::latest()->get();
+        $blogpost = BlogPost::latest()->paginate(2);
         return view('frontend.blog.home_blog',compact('blogcategoryies','blogpost'));
     }// End Method 
 
